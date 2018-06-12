@@ -1,0 +1,38 @@
+{
+    "name": "@hwholland/read-deep",
+    "version": "0.1.0",
+    "description": "micro-service application that reads a deeply nested hierarchy from Redis",
+    "main": "index.js",
+    "dependencies": {
+        "body-parser": "~1.18.3",
+        "jsdoc": "~3.5.5",
+        "path": "~0.12.7",
+        "raven": "^2.6.2",
+        "express": "~4.16.2",
+        "request": "2.87.0",
+        "redis": "~2.8.0",
+        "http": "*",
+        "simple-get": "3.0.2",
+        "http-post": "~0.1.1",
+        "uuid": "3.2.1"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "test": "node test/test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hwholland/view-list.git"
+    },
+    "author": {
+        "name": "Harrison Holland",
+        "email": "harrisonholland@gmail.com"
+    },
+    "bugs": {
+        "url": "git+https://github.com/hwholland/view-list.git"
+    },
+    "homepage": "git+https://github.com/hwholland/view-list.git#README",
+    "devDependencies": {
+        "jsdoc": "~3.5.5"
+    }
+}
