@@ -1,6 +1,6 @@
 function request() {
     const get = require('simple-get');
-    get('http://127.0.0.1:3003/read/deep/business:nodes', function(err, res) {
+    get('http://127.0.0.1:3003/read/deep/business:children', function(err, res) {
         if (err) { 
             throw err;
         }

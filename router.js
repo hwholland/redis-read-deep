@@ -12,8 +12,7 @@ function router(oApp, oExpress) {
     this.redisHost = '127.0.0.1';
     this.redisPort = 6379;
     this.redisInstance = 0;
-    this.subscribeClient = new redis(this.redisHost, this.redisPort, this.redisInstance);
-    this.publishClient = new redis(this.redisHost, this.redisPort, this.redisInstance);
+
 }
 
 router.prototype.loadRoutes = function() {
@@ -21,9 +20,15 @@ router.prototype.loadRoutes = function() {
     var that = this;
 
     this.app.get("/read/deep/*", function(oRequest, oResponse) {
+        that.subscribeClient = new redis(that.redisHost, that.redisPort, that.redisInstance);
+        that.publishClient = new redis(that.redisHost, that.redisPort, that.redisInstance);
         var listKey = oRequest.params[0];
         var pubList = new list(listKey);
         function hashCallback(channel, message) {
+            console.log("callback");
+            console.log(channel);
+            that.subscribeClient.quit();
+            that.publishClient.quit();
             oResponse.send(message);
         }
         function listCallback(pattern, channel, message) {
